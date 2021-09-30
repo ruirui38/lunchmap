@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Shop;
+use App\Category;
 use Illuminate\Http\Request;
 
 class ShopController extends Controller
@@ -14,7 +15,9 @@ class ShopController extends Controller
      */
     public function index()
     {
-        //
+        $shops = Shop::all();
+        $categories = Category::all()->pluck('name','id');
+        return view('index',['shops' => $shops, 'categories' => $categories]);
     }
 
     /**
