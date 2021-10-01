@@ -11,8 +11,6 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
 
-Route::get('/shops','ShopController@index')->name('shop.list');
+Route::get('/','ShopController@index')->name('shop.list');
+Route::get('/shop/{id}','ShopController@show')->name('shop.show');
